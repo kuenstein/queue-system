@@ -1,0 +1,25 @@
+// display.html (Display Page for Customers)
+const displayHTML = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratory Queue Display</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Now Serving</h1>
+        <p class="number" id="currentNumber">-</p>
+    </div>
+    <script>
+        setInterval(async () => {
+            const response = await fetch('http://localhost:3000/queue');
+            const data = await response.json();
+            document.getElementById('currentNumber').innerText = data.current || '-';
+        }, 3000);
+    </script>
+</body>
+</html>
+

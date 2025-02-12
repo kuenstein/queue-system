@@ -1,0 +1,32 @@
+// customer.html (Customer Page for Laboratory)
+const customerHTML = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratory Queue</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Laboratory Queue System</h1>
+        <p>Click below to get a queue number:</p>
+        <button onclick="getQueueNumber()">Get Queue Number</button>
+        <div id="queueNumber"></div>
+    </div>
+    <script>
+        async function getQueueNumber() {
+            const response = await fetch('http://localhost:3000/queue', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            const data = await response.json();
+            if (data.number) {
+                document.getElementById('queueNumber').innerText = `Your Number: ${data.number}`;
+            }
+        }
+    </script>
+</body>
+</html>
+`;

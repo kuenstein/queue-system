@@ -1,0 +1,35 @@
+// laboratory.html (Teller Page for Laboratory)
+const laboratoryHTML = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratory Teller</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Laboratory Teller</h1>
+        <button id="callNext">Call Next</button>
+        <div class="status">
+            <p>Currently Serving:</p>
+            <p class="number" id="currentNumber">-</p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('callNext').addEventListener('click', async () => {
+            const response = await fetch('http://localhost:3000/call', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            const data = await response.json();
+            if (data.current) {
+                document.getElementById("currentNumber").innerText = data.current;
+            } else {
+                alert('No customers in queue.');
+            }
+        });
+    </script>
+</body>
+</html>
