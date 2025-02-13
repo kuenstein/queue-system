@@ -1,0 +1,20 @@
+{
+  "name": "queue-system",
+  "version": "1.0.0",
+  "description": "A simple queue management system",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "queue",
+    "management",
+    "system"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}

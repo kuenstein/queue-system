@@ -1,0 +1,10 @@
+{
+  "BILLING": [],
+  "CASHIER": [],
+  "PHILHEALTH": [],
+  "current": {
+    "BILLING": null,
+    "CASHIER": null,
+    "PHILHEALTH": null
+  }
+}
